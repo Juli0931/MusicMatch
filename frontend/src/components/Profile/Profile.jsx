@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./Profile.css";
 
 export function Profile() {
   const [userData, setUserData] = useState({});
@@ -24,24 +25,25 @@ export function Profile() {
   }, []);
 
   return (
-    <>
-      <div>
-        <h2>Perfil de usuario</h2>
-        <p>Nombre: {userData.display_name}</p>
-        <p>Número de pistas guardadas: {totalTracks.total}</p>
-        <h3>Top 5 pistas guardadas:</h3>
-        <ul>
-          {savedTracks.map((track, index) => (
-            <li key={index}>
-              {track.track.name} -{" "}
-              {track.track.artists.map((artist) => artist.name).join(", ")}
-            </li>
-          ))}
-        </ul>
+    <div>
+      <div className="proContainer">
+        <h2>¡Hola de nuevo, {userData.display_name}!</h2>
+        <h3>
+          ¿Sabías que tienes un total de {totalTracks.total} canciones
+          favoritas?
+        </h3>
+        <h3>Estas son tus más recientes</h3>
+        {savedTracks.map((track, index) => (
+          <li key={index}>
+            {track.track.name} -{" "}
+            {track.track.artists.map((artist) => artist.name).join(", ")}
+          </li>
+        ))}
       </div>
       <Link to="/EncuestaPage">
-        <button>Push me</button>
+        <button className="btn"> ¡Descubre más!</button>
       </Link>
-    </>
+    </div>
+
   );
 }

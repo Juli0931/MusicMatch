@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Instancia del cliente de Spotify
-spotify_client = SpotifyClient(client_id="59cb9a527cfd43e2813e6d52b5f68aeb", client_secret="7387b7811f7348c28e2be0a72c730b38", redirect_uri="http://localhost:5000/callback")
+spotify_client = SpotifyClient(client_id="59cb9a527cfd43e2813e6d52b5f68aeb", client_secret="6792d2d49c2b4d4f8a7ff63d7dc3f687", redirect_uri="http://localhost:5000/callback")
 
 songs_features = []
 
@@ -80,6 +80,9 @@ def get_recommendations(survey_data, access_token, songs_features):
     full_url = f"{base_url}?{query_string}"
 
     response = requests.get(full_url, headers=headers)
+
+    print("---->", response.status_code)
+    print("---->", response)
 
     if response.status_code == 200:
         recommendations = response.json()

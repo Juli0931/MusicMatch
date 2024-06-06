@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Barrio&display=swap');
+
+body{
+  color: #FFF;
+  background-image: url(../src/Assets/FondoApp.png);
+  background-size: cover;
+}
+
 .App {
   text-align: center;
+  align-content: center;
 }
 
 .App-logo {

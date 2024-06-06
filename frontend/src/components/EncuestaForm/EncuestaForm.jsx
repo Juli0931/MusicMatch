@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "./EncuestaForm.css"
+import imagen from '../../Assets/FondoApp.png'
 
 export function EncuestaForm() {
   const [encuestaData, setEncuestaData] = useState({
@@ -79,7 +81,7 @@ export function EncuestaForm() {
   };
 
   return (
-    <div>
+    <div className='container'>
       <h2>Encuesta de Preferencias Musicales</h2>
       <form onSubmit={handleSubmit}>
 
@@ -140,7 +142,7 @@ export function EncuestaForm() {
           </select>
         </label>
 
-        <button type="submit">¡Terminé!</button>
+        <button className="btn" type="submit">¡Terminé!</button>
       </form>
     </div>
   );
